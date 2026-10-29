@@ -72,11 +72,6 @@
     { name: 'Campo Mourão', since: 'DESDE JUL. 2021', img: 'IMG — Fachada Boutique Campo Mourão — 800×520 (20:13)', addr: 'Rua Maria Olímpia Jardim, 776 – Jardim Isabel, Campo Mourão – PR · anexa à sede', hours: HORARIO_CM, maps: 'https://www.google.com/maps/search/?api=1&query=Rua+Maria+Olimpia+Jardim+776+Campo+Mourao+PR', ig: 'https://instagram.com/boutiquemariamaciacampomourao' },
     { name: 'Maringá', since: 'DESDE DEZ. 2022', img: 'IMG — Fachada Boutique Maringá — 800×520 (20:13)', addr: 'Av. Dr. Gastão Vidigal, 3304 – Maringá – PR', hours: HORARIO_MGA, maps: 'https://www.google.com/maps/search/?api=1&query=Av+Dr+Gastao+Vidigal+3304+Maringa+PR', ig: 'https://instagram.com/boutiquemariamaciamga' }
   ];
-  const MINI_PINS = [
-    { label: 'Boutique Campo Mourão', x: '30%', y: '42%', c: '#F2B705' },
-    { label: 'Boutique Maringá', x: '52%', y: '18%', c: '#F2B705' },
-    { label: 'Guarapuava', x: '74%', y: '84%', c: '#C9A45C' }
-  ];
   const STORES = [
     { id: 'cm', city: 'Campo Mourão', uf: 'PR', type: 'Boutique + sede da cooperativa', lat: -24.05, lon: -52.38, b: true },
     { id: 'mga', city: 'Maringá', uf: 'PR', type: 'Boutique Maria Macia', lat: -23.42, lon: -51.94, b: true },
@@ -389,6 +384,7 @@
     $$('.boi-cut, .boi-btn').forEach(b => b.classList.toggle('on', b.dataset.id === id));
     $$('.cut', cutsGrid).forEach(el => el.classList.toggle('sel', el.dataset.id === id));
     $('#cutPanel').innerHTML = `
+      <div class="ph cut-photo">IMG — Corte: ${c.name.toLowerCase()} — 800×600 (4:3)</div>
       <span class="lbl">${c.region} · CORTE ${pad(c.i + 1)}</span>
       <h4>${c.name}</h4>
       <p>${c.d}</p>
@@ -440,9 +436,6 @@
         </div>
       </div>
     </article>`).join('');
-  $('#miniPins').innerHTML = MINI_PINS.map(p =>
-    `<div class="pin" style="left:${p.x};top:${p.y};--c:${p.c}"><i></i><span>${p.label}</span></div>`).join('');
-
   /* ---------- Onde encontrar ---------- */
   const proj = st => ({ x: `${(st.lon + 55) / 9.5 * 100}%`, y: `${(-21.5 - st.lat) / 5 * 100}%` });
   let q = '', uf = 'Todos', selStore = 'cm';
