@@ -676,7 +676,9 @@ body.menu-open .hdr{background:rgba(15,13,12,.95)}
 .feed-head .h2{order:0;margin:56px 0 16px;color:var(--ink);font-size:30px}
 .feed-head .h2 em{color:var(--blood)}
 .feed-head .h2{font-size:28px;line-height:1.1;overflow-wrap:anywhere}
-.feed-head .h2 em{display:block;font-size:.8em}
+.feed-head .h2 em{display:block;font-size:min(.8em,5.2vw);white-space:nowrap}
+.typed::after{content:'';display:inline-block;width:2px;height:.9em;margin-left:2px;vertical-align:-.1em;background:currentColor;animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
 .feed-grid{order:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .feed-grid a{aspect-ratio:1/1;overflow:hidden;background:#e9e3d6;transition:transform .35s}
 .feed-grid img{display:block;width:100%;height:100%;object-fit:cover;font-size:10px;line-height:1.3;color:#8a8580}
@@ -706,8 +708,8 @@ body.menu-open .hdr{background:rgba(15,13,12,.95)}
   .feed{grid-column:1/13;gap:28px}
   .feed-head{display:flex;justify-content:space-between;align-items:flex-end}
   .feed-head .h2{margin:0;font-size:48px}
-  .feed-head .h2 em{display:inline;font-size:1em}
-  .feed-head .h2 em{display:inline;font-size:1em}
+  .feed-head .h2 em{display:inline;font-size:1em;white-space:normal}
+  .feed-head .h2 em{display:inline;font-size:1em;white-space:normal}
   .feed-head .btn{margin:0;height:48px;padding:0 24px}
   .feed-grid{grid-template-columns:repeat(6,1fr);gap:12px}
   .feed-grid a:hover{transform:scale(1.03)}

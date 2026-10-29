@@ -526,6 +526,23 @@
   $('#feedGrid').innerHTML = Array.from({ length: 6 }, (_, i) =>
     `<a href="https://www.instagram.com/boutiquemariamaciaguarapuava/" target="_blank" rel="noopener" aria-label="Post ${i + 1} no Instagram"><img src="img/feed-${i + 1}.jpg" alt="Post ${i + 1} da Boutique Maria Macia Guarapuava no Instagram" loading="lazy"></a>`).join('');
 
+  /* ---------- digitação: Instagram das boutiques ---------- */
+  const igType = $('#igType');
+  const IG = ['boutiquemariamaciaeuclides', 'boutiquemariamaciacampomourao', 'boutiquemariamaciaguarapuava', 'coopmariamacia'];
+  if (igType && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    let ig = 0, ch = IG[0].length, del = true;
+    const tick = () => {
+      const word = IG[ig];
+      igType.textContent = word.slice(0, ch);
+      let wait = del ? 35 : 80;
+      if (!del && ch === word.length) { del = true; wait = 2200; }
+      else if (del && ch === 0) { del = false; ig = (ig + 1) % IG.length; wait = 350; }
+      else ch += del ? -1 : 1;
+      setTimeout(tick, wait);
+    };
+    setTimeout(tick, 2200);
+  }
+
   /* ---------- scroll: header, timeline, marias ---------- */
   const campo = $('#campo');
   const tlView = $('#tlView');
