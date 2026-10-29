@@ -132,7 +132,7 @@ body.menu-open .hdr{background:rgba(15,13,12,.95)}
 /* =========================================================
    02 HERO
    ========================================================= */
-.hero{position:relative;min-height:max(640px,100svh);overflow:hidden;background:var(--ink);display:flex;align-items:center;padding:96px var(--edge) 32px}
+.hero{position:relative;overflow:hidden;background:var(--ink);display:flex;align-items:flex-start;padding:96px var(--edge) 40px}
 .hero-smoke{position:absolute;inset:0;pointer-events:none;transition:transform .6s ease-out}
 .smoke{position:absolute;border-radius:50%;pointer-events:none}
 .hero .s1{left:-20%;top:50%;width:420px;height:420px;background:radial-gradient(circle,rgba(242,183,5,.2),transparent 65%);filter:blur(30px);animation:smoke 16s ease-in-out infinite alternate}
