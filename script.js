@@ -523,8 +523,8 @@
   });
   renderT(); startT();
 
-  $('#feedGrid').innerHTML = POSTS.map(p =>
-    `<a class="ph" href="https://instagram.com/coopmariamacia" target="_blank" rel="noopener">${p}</a>`).join('');
+  $('#feedGrid').innerHTML = Array.from({ length: 6 }, (_, i) =>
+    `<a href="https://www.instagram.com/boutiquemariamaciaguarapuava/" target="_blank" rel="noopener" aria-label="Post ${i + 1} no Instagram"><img src="img/feed-${i + 1}.jpg" alt="Post ${i + 1} da Boutique Maria Macia Guarapuava no Instagram" loading="lazy"></a>`).join('');
 
   /* ---------- scroll: header, timeline, marias ---------- */
   const campo = $('#campo');
